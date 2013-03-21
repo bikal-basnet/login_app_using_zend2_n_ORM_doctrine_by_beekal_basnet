@@ -1,0 +1,99 @@
+<!--
+* Updated : 2013-March 20 Bikal Basnet, updated the layout to custom layout settings
+-->
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink()
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+        <!-- Scripts -->
+        <?php 
+		echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                      ->prependFile($this->basePath() . '/js/jquery.min.js')
+									  ->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')	  
+									  ->prependFile($this->basePath() . '/js/modernizr.beekal.js');
+									   ?>
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	   <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    </head>
+    <body>
+        <!-- wrap start -->
+        <div id = "wrap">
+            <div id = "top-bg"></div>
+              <!-- header starts -->
+               <header>    
+                 <h1 id="logo-text">
+                 <a  href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
+                 </h1>
+               </header>
+               <!--//--- header ends ---  -->  
+                       
+             <!-- navigation starts ----->       
+                  <nav>
+                    <ul>        
+                    <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                    </ul>                    
+                  </nav> 
+             <!-- navigation ends-->      
+                  
+    <!-- content wrap starts-->
+    <div id="content-wrap">
+            <aside id="aside" >
+                    <h3>Sidebar Menu</h3>
+                    <ul class="sidemenu">				
+                        <li><a href="<?php echo $this->url('home') ?>">Home</a></li>				
+                         <?php if (session_id()): ?>
+                        <li><a href="<?php echo $this->url('user', array("action"=>"logout")) ?>">Log Out</a></li>
+                        <?php endif;?>
+                    </ul>                                    
+            </aside>
+            
+        <section id="main">
+            		<br />
+                  <br />
+					<?php if ($this->flashMessenger()->setNamespace('success')->hasMessages()): ?>
+                    <div class="sucess_message" id="sucess_message">
+                    <?php foreach ($this->flashMessenger()->getMessages() as $msg): ?>
+                        <?php echo $msg ?>
+                    <?php endforeach; ?>
+                    </div>
+                <?php endif;
+                $this->flashMessenger()->setNamespace('success')->clearMessages();
+                 ?>
+                
+                <?php if ($this->flashMessenger()->setNamespace('error')->hasMessages()): ?>
+                    <div class="error_message" id="error_message">
+                    <?php foreach ($this->flashMessenger()->getMessages() as $msg): ?>
+                        <?php echo $msg ?>
+                    <?php endforeach; ?>
+                    </div>
+                <?php endif; 
+                $this->flashMessenger()->setNamespace('success')->clearMessages();
+                ?>
+                            <?php echo $this->content; ?>
+            </section>        
+      <!--content-wrap ends --*/-->  
+  </div>
+    
+  <!-- footer starts ---->
+    <div id="footer-wrap">
+      <footer><p>Copyright   2013</p></footer>   
+	</div>
+   <!--//-- footer ends-->   
+
+ <!--//--- wrap closes-->
+ </div>
+   <?php echo $this->inlineScript() ?>
+   </body>
+</html>

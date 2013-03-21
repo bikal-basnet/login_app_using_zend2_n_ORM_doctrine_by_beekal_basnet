@@ -1,0 +1,60 @@
+<?php
+/// <summary>
+///  This file ccontains view defination for the profile action 
+/// </summary>
+/// Created : 2013 March 20, Bikal Basnet
+
+// module/Album/view/user/user/index.phtml:
+$title = 'Profile';
+$this->headTitle($title);
+$style_cycles = array('row-a','row-b');
+$style_index = -1;
+?>
+<h2><?php echo $this->escapeHtml($title); ?></h2>
+<!--<p> <a href="<?php echo $this->url('user', array("action"=>"logout")) ?>">Log Out</a>
+</p>
+-->
+<p>
+Following is your last 5 login details :
+<br />
+<br />
+<?php if(count($login_informations) <= 5): ?>
+	Number of times logged in since registering =  
+	<?php echo count($login_informations);
+ endif;?>
+</p>
+<?php
+
+	//var_dump($login_informations);
+?>
+     <table>
+				<tr>					
+					<th>Login: Date and Time</th>										
+				</tr>
+
+                 <?php if(count($login_informations) == 0) : ?>
+                <tr class="no_records">
+					<td  colspan="4">No Previous login records found</td>					
+				</tr>                
+                <?php else:
+						foreach($login_informations as $obj_login_information){				
+				 ?>   
+                        <tr class='<?php echo "class=".$style_cycles[++$style_index%2];?>' >
+                            <td><?php  echo date('d F Y, H:i:s',$obj_login_information->logged_in_date_time); ?> </td>                   
+                        </tr>     			                    
+                <?php  } 
+				//   when elements are five, style-index runs from 0 to 4 in the foreach loop. Becoz style_index preset to -1 earlier
+						for($i = $style_index; $i < 4; $i++){ ?>
+							<tr class='<?php echo "class=".$style_cycles[++$style_index%2];?>' >
+                            <td>Not Available </td>                   
+                        </tr>
+                <?php
+						}
+				endif; 
+				?>      
+                      
+				
+</table>
+<p><br />
+     
+</p>

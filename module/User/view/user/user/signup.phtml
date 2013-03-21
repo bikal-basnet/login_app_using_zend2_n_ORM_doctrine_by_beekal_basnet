@@ -1,0 +1,67 @@
+<!--/// <summary>
+///  This file ccontains view defination for the sign up action 
+/// </summary>
+/// Created : 2013 March 18, Bikal Basnet
+-->
+<style type="text/css">
+    label span{	        
+        width: 200px;        
+    }
+</style>
+    <script type="text/javascript">
+	
+     $(document).ready(function(){		 	 
+      $("#formid").validate({		  
+             debug: false,
+       rules: {
+        email: {
+         required: true,     
+         email:true,
+        },
+		password: {
+         required: true,
+		 minlength: 6, 
+		},
+		confirm_password: { 
+                required: true, equalTo: "#password",
+         } 
+		
+       },
+       messages: {
+        email: {
+            required: "Please enter your email here",
+            email: "Please enter a valid email",
+        },   
+        password: {
+            required: "Please enter your password here",
+			minlength: "Your password should have minimum 6 charcters ",
+			regex : "Password should have at least one uppercase , one lowercase and one digit character",
+            
+        },
+		confirm_password: {
+            required: "Please retype your password here",
+			equalTo: "Password does not match. Please check password ",           
+        },
+       }
+      });
+     });
+    </script>
+
+
+<?php
+// module/Album/view/user/user/add.phtml:
+$title = 'Sign Up';
+$this->headTitle($title);
+?>
+<h2><?php echo $this->escapeHtml($title); ?></h2>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('user', array('action' => 'signup')));
+$form->prepare();
+echo $this->form()->openTag($form);
+echo "<br />";
+echo $this->formCollection($form);
+echo "<br />";
+echo $this->form()->closeTag();
+?>

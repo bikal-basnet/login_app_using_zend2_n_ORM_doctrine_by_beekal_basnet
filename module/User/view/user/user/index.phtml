@@ -1,0 +1,84 @@
+<!--/// <summary>
+///  This file ccontains view defination for the profile action 
+/// </summary>
+/// Created : 2013 March 18, Bikal Basnet
+-->
+<style type="text/css">
+    #left_content{	
+        float:left;
+        width: 200px;
+        padding: 5px;
+        margin: 2px;
+    }
+    #right_content{	
+        float:left;
+        width: 300px;
+        padding:5px;
+        margin:2px;
+    }
+</style>
+</style>
+    <script type="text/javascript">
+	
+     $(document).ready(function(){		 	 
+      $("#user_sign_in").validate({		  
+             debug: false,
+       rules: {
+        email: {
+         required: true,     
+         email:true,
+        },
+		password: {
+         required: true,
+		 minlength: 6, 
+		}
+       },
+       messages: {
+        email: {
+            required: "Please enter your email here",
+            email: "Please enter a valid email",
+        },   
+        password: {
+            required: "Please enter your password here",
+			minlength: "Your password should have minimum 6 charcters ",
+        },
+       }
+      });
+     });
+    </script>
+
+<?php
+// module/Album/view/user/user/index.phtml:
+$title = 'My users';
+$this->headTitle($title);
+?>
+
+<?php 
+/*$flashMessages = $this->flashMessenger()->getMessages();
+if(count($flashMessages)) : ?>
+<ul>
+    <?php foreach ($flashMessages as $msg) : ?>
+    <li><?php echo $msg; ?></li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; */
+?>
+<div id ="left_content">
+    <h2>Sign Up</h2>
+    
+    <p>
+    If you are a new user, please <a href="<?php echo $this->url('user', array('action'=>'signup'));?>">click here to sign up</a>
+    </p>
+</div>
+<div id ="right_content">
+    <h2>Sign In</h2>
+    <?php
+    $form = $this->form;
+    $form->setAttribute('action', $this->url('user', array('action' => 'signin')));
+    $form->prepare();
+    echo $this->form()->openTag($form);
+    echo $this->formCollection($form);
+    echo $this->form()->closeTag();
+    ?>
+    </p>
+</div>

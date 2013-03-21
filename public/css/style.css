@@ -1,0 +1,392 @@
+
+/* Top Elements */
+* { margin: 0; padding: 0; outline: 0 }
+
+body {
+	background: #CCC;
+	font: 70%/1.5em Verdana, Tahoma, arial, sans-serif;
+	color: #666666; 
+	text-align: center;
+	margin: 15px 0;
+}
+
+/* links */
+a, a:visited {	
+	color: #5A93C9;
+	background: inherit;
+	text-decoration: none;
+}
+a:hover {
+	color: #88ac0b;
+	background: inherit;
+	text-decoration: underline;
+}
+
+/* headers */
+h1, h2, h3 {
+	font-family: 'Trebuchet MS', Tahoma, Sans-serif;
+	font-weight: Bold; 		
+}
+h1 {
+	font-size: 190%;	
+	font-weight: normal;
+	color: #555;
+}
+h2 {
+	font-size: 130%;
+	text-transform: uppercase;
+	color: #88ac0b;
+}
+h3 {
+	font-size: 130%;	
+}
+
+h1, h2, h3, p {
+	padding: 10px;		
+	margin: 0;
+}
+ul, ol {
+	margin: 5px 20px;
+	padding: 0 20px;
+}
+ul {
+	list-style: none;
+}
+
+/* images */
+img {
+	background: #FAFAFA;
+    border: 1px solid #DCDCDC;
+	padding: 8px;
+}
+img.float-right {
+  	margin: 5px 0px 10px 10px;  
+}
+img.float-left {
+  	margin: 5px 10px 10px 0px;
+}
+
+
+
+/* ------------------------------------------
+   LAYOUT
+--------------------------------------------- */
+#wrap {
+	position: relative;
+	width: 820px;
+	background: #CCC url(themes/base/images/content.jpg) repeat-y center top;
+	margin: 0 auto;
+	text-align: left;
+}
+#top-bg {
+   position: absolute;
+	width: 820px;
+	height: 19px;
+	background: #CCC url(themes/base/images/top-bg.jpg) repeat-y center top;	
+	top: 0; left: 0;
+	z-index: 2;	
+}
+#content-wrap {
+	position: relative;
+	clear: both;
+	float: left;	
+	width: 790px;	
+	padding: 0; 	
+	background: #E8E8E8;	
+	border-top: 5px solid #FFF;
+	border-bottom: 2px solid #D0D0D0;
+	margin-left: 15px;	
+	display: inline;
+}
+header {
+	width: 820px;
+	position: relative;
+	height: 100px;
+	background: #CCC url(themes/base/images/header-bg.jpg) repeat-y center top;
+	padding: 0;	
+	color: #FFF;	
+}
+header h1#logo-text a {
+	position: absolute;
+	margin: 0; padding: 0;
+	font: bold 36px 'Trebuchet MS', Arial, Sans-serif;
+	letter-spacing: -1px;
+	color: #787676;
+	text-transform: none;
+	text-decoration: none;
+	
+	/* change the values of top and left to adjust the position of the logo*/
+	top: 25px; left: 30px;	
+}
+header h1#logo-text span {
+	color: #9A9696;
+}
+
+
+/* Navigation */
+nav {
+	clear: both;	
+	padding: 0;	
+	
+}
+nav ul {
+	float: left;
+	list-style: none;
+	background: url(themes/base/images/nav.jpg) repeat-x;	
+	width: 790px;		
+	text-transform: uppercase;
+	margin: 0 0 0 15px;
+	padding: 0;	
+	display: inline;
+}
+nav ul li {
+	display: inline;
+	margin: 0; padding: 0;
+}
+nav ul li a {
+	display: block;
+	float: left;
+	width: auto;
+	margin: 0;
+	padding: 0 14px;
+	border-right: 1px solid #899D00;
+	border-left: 1px solid #A7D101;
+	border-bottom: none;
+	color: #FFF;
+	font: bold 13px/2.8em "Century Gothic", "Trebuchet MS", Helvetica, Arial, Geneva, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;	
+	letter-spacing: 1px;
+}
+nav ul li a:hover, 
+nav ul li a:active {
+	text-decoration:none;
+	color:#FFF;	
+	background: url(themes/base/images/nav-hover.jpg) repeat-x;	
+}
+nav ul li#current a {	
+	color:#FFF;
+	background: url(themes/base/images/nav-current.jpg) repeat-x;	
+}
+
+/* Main Column */
+#main {
+	float: left;
+	width: 67%;
+	padding: 20px 0 0 0; margin: 0 0 0 10px;
+	display: inline;
+}
+#main h2 {
+	font: normal 1.9em 'Trebuchet MS', Tahoma, Sans-serif;
+	color: #85970C; 
+	text-transform: none;
+	padding: 10px 0 0px 10px; 			
+}
+#main h2 a {
+	color: #85970C;
+	text-decoration: none;	
+}
+#main ul li {
+	list-style-image: url(themes/base/images/bullet.gif);
+}
+
+/* Sidebar */	
+aside {
+	float : left ;
+	width: 27.5%;
+	padding: 20px 10px 0 0;
+	margin: 0;
+}	
+aside h3 {
+	padding: 5px 5px; 
+	font: bold 1.4em 'Trebuchet MS', Tahoma, Sans-serif;
+	color: #8C9F0D; 		
+}
+aside ul.sidemenu {
+	text-align: left;
+	margin: 7px 4px 8px 0; padding: 0;
+	text-decoration: none;		
+	background: url(themes/base/images/dots.jpg) repeat-x left top;
+}
+aside ul.sidemenu li {
+	list-style: none;
+	background: url(themes/base/images/dots.jpg) repeat-x left bottom;
+	padding: 5px 0 5px 5px;
+	margin: 0 2px;		
+	color: #8F8F8F;
+}
+* html body aside ul.sidemenu li {
+	height: 1%;
+}
+aside ul.sidemenu li a {
+	text-decoration: none;	
+	background-image: none;	
+	color: #666666;			
+}
+aside ul.sidemenu li a:hover {	
+	color: #1773BC;	
+}
+aside ul.sidemenu ul { margin: 0 0 0 5px; padding: 0; }
+aside ul.sidemenu ul li { background: none; }
+
+/* footer */
+#footer-wrap {
+	clear: both;
+	width: 820px;
+	font-size: 95%;	
+	text-align: left;
+	padding: 15px 0;
+	background: url(themes/base/images/footer-bottom.jpg) no-repeat center bottom;	
+}
+#footer-wrap a {
+	text-decoration: none;
+	color: #333;
+}
+#footer-wrap a:hover {
+	color: #000;	
+}
+#footer-wrap p {
+	padding:10px 0;
+}
+#footer-wrap h3 {
+	color: #666666;
+	margin: 0;
+	padding: 0 10px; 
+	text-transform: uppercase;
+}
+
+
+/* bottom */
+footer {
+	clear: both;
+	color: #666;	
+	margin: 0 auto; 
+	width: 820px;
+	padding: 20px 0 15px 0;
+	text-align: center;
+}
+
+
+/* alignment classes */
+.float-left  { float: left; }
+.float-right { float: right; }
+.align-left  { text-align: left; }
+.align-right { text-align: right; }
+
+/* display and additional classes */
+.clear { clear: both; }
+
+/* start - table */
+table {
+	border-collapse: collapse;
+	margin: 10px;	
+	font-size:1em;
+}
+th strong {
+	color: #fff;
+}
+th {
+	background: #666 ;
+	height: 29px;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: #FFF;
+	text-align: center;
+	border-left: 1px solid #B6D59A;
+	border-bottom: solid 2px #FFF;
+}
+tr {
+	height: 30px;
+}
+td {
+	padding-left: 11px;
+	padding-right: 11px;
+	border-left: 1px solid #E8E8E8;
+	border-bottom: 1px solid #DFDFDF;
+}
+td.first,th.first {
+	border-left: 0px;
+}
+tr.row-a {
+	background: #F8F8F8;
+}
+tr.row-b {
+	background: #EFEFEF;		
+}
+/* end - table */
+
+/* css for general styles */
+.no_records {
+	background: #FC8386;
+}
+
+/* end css for general styles */
+
+/* form elements */
+form {
+	margin:10px; padding: 0 5px 5px 5px;
+	border: 1px solid #D5D5D5; 
+	background-color: #DFDFDF; 	
+}
+form#delete_form{
+	background:none;
+	border:none;
+	
+	display:inline;
+}
+
+form#delete_form a{
+
+	background:none;
+}
+label span {
+	display:inline-table;
+	font-weight:bold;
+	margin:5px 0 ;
+	padding :10px;
+	width:75px;
+	
+
+}
+input {
+	padding:2px;
+	border:1px solid #eee;
+	font: normal 1em Verdana, sans-serif;
+	color:#777;
+	display:block;
+	width: 200px;
+	
+}
+#errors_in_form, #error_message{
+	margin : 10px ;
+	color:#F00;
+
+}
+
+
+
+#delete_button{
+	display:inline;
+	
+}
+
+/* ends form elements */
+
+sucess_message, #sucess_message{
+	display:block;
+	margin : 10px;
+	color:#0C3;
+	font-weight:bolder;
+		
+}
+
+
+/* jquery validation css */
+label.error { width: 250px; display: block; color: red;}
+
+/*  this section is initially hidden, however for js enabled browsers it will be shown by javascript, for js disabled  alternatives are supplied alongside  in no script tag */
+.show_only_when_js_enabled{
+	display:none;
+		
+}
+
