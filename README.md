@@ -1,1 +1,1 @@
-sample album application test app
+sample login using Zend 2 and doctrine ORM
